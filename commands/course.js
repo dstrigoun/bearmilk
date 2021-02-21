@@ -15,11 +15,9 @@ module.exports = {
         const dept_regex = /^\w{2,4}$/g;
         const num_regex = /^\d{2,4}$/g;
         if (args[0].match(dept_regex)) {
-            console.log("yay");
             var dept = args[0];
         }
         if (args[1].match(num_regex)) {
-            console.log("double yay");
             var course_num = args[1];
         }
 
@@ -30,13 +28,17 @@ module.exports = {
                 let term = res.data.info.term;
                 let prof = res.data.instructor[0]['name'];
 
+                const attachment = new Discord.MessageAttachment('./resources/icons/pencil.png', 'pencil.png');
+
                 const courseInfo = new Discord.MessageEmbed()
                     .setColor('#0099ff')
                     .setTitle(name)
                     .setURL(`http://www.sfu.ca/outlines.html?2021/summer/${dept}/${course_num}/d100`)
                     .setDescription(title)
                     .addField('Prof', prof, true)
-                    .addField('Term', term, true);
+                    .addField('Term', term, true)
+                    .attachFiles(attachment)
+                    .setImage('attachment://pencil.png');
 
                 message.reply(courseInfo);
             })
