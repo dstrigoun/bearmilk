@@ -39,9 +39,13 @@ module.exports = {
             }
         }
 
+        const attachment = new Discord.MessageAttachment('./resources/icons/university.png', 'university.png');
+
         const linkList = new Discord.MessageEmbed()
             .setTitle("SFU Links")
-            .setDescription(links);
+            .setDescription(links)
+            .attachFiles(attachment)
+            .setThumbnail('attachment://university.png') ;
     
         message.reply(linkList);
     }
