@@ -1,14 +1,13 @@
 module.exports = {
     name: 'course',
-    description: 'Return course information using SFU Course Information API',
+    description: 'Return course information using SFU Course Information API.',
+    usage: '<department> <course number>',
     execute(message, args) {
         const axios = require('axios');
         const Discord = require('discord.js');
 
-        console.log(args);
-
         if (args.length != 2) {
-            message.reply("Please add a course number to your request!\nFor example: CMPT 110 or arch 100");
+            message.reply("Please add a course number to your request!\nFor example: CMPT 110 or ARCH 100");
             return;
         }
 
@@ -35,10 +34,10 @@ module.exports = {
                     .setTitle(name)
                     .setURL(`http://www.sfu.ca/outlines.html?2021/summer/${dept}/${course_num}/d100`)
                     .setDescription(title)
-                    .addField('Prof', prof, true)
+                    .addField('Professor', prof, true)
                     .addField('Term', term, true)
                     .attachFiles(attachment)
-                    .setImage('attachment://pencil.png');
+                    .setThumbnail('attachment://pencil.png');
 
                 message.reply(courseInfo);
             })

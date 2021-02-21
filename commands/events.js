@@ -7,7 +7,7 @@ const event_display_size = 10;
 module.exports = {
   name: 'events',
   description: 'Find upcoming events',
-
+  usage: '',
   execute(message, args) {
 
     axios.get('http://api.lib.sfu.ca/workshops/list')
@@ -30,11 +30,15 @@ module.exports = {
           }
         }
 
+        const attachment = new Discord.MessageAttachment('./resources/icons/calendar.png', 'calendar.png');
+
         const richMsg = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle(`Upcoming Events`)
         .setAuthor(`Here are some upcoming event workshops, ${message.author.tag}`)
         .setDescription(`Please note that many events are transitioning to an online format. Please check included link for more`)
+        .attachFiles(attachment)
+        .setThumbnail('attachment://calendar.png');
         
         for (el in arr) {
           console.log(arr[el]);
