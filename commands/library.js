@@ -2,7 +2,7 @@ const creds = require('../creds.js');
 const axios = require('axios');
 const Discord = require('discord.js');
 
-const textbooks_limit = 10;
+const textbooks_limit = 6;
 
 module.exports = {
   name: 'library',
@@ -68,7 +68,6 @@ module.exports = {
             {name: `${library_name_3}`, value: `Current Status: ${status_3}\n Hours : ${library_hours_3}\n Book Room: ${book_room_3}`},
             {name: `${library_name_4}`, value: `Current Status: ${status_4}\n Hours : ${library_hours_4}\n Book Room: ${book_room_4}`}
           )
-          .setTimestamp()  
           
           message.reply(richMsg);
             

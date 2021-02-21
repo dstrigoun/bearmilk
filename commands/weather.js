@@ -125,7 +125,6 @@ module.exports = {
         { name: `${thirdDay}`, value: `Expected Weather: ${weatherDescThird}\n Temperature: ${tempCelsiusThird}\n Chance of Rain: ${rainChanceThird}%`, inline: true },
 
       )
-      .setTimestamp()
 
 
       message.reply(weatherEmbed);
