@@ -1,6 +1,7 @@
 module.exports = {
     name: 'contact',
-    description: 'Return contact information for specified department',
+    description: 'Return contact information for specified keyword. Valid keywords: Advising, Co-op, Prof, General',
+    usage: '<keyword>',
     execute(message, args) {
         //advising
             // https://www.sfu.ca/students/academicadvising/contact/departmental-advisors/fas.html

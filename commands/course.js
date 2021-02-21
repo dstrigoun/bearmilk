@@ -1,6 +1,7 @@
 module.exports = {
     name: 'course',
-    description: 'Return course information using SFU Course Information API',
+    description: 'Return course information using SFU Course Information API.',
+    usage: '<department> <course number>',
     execute(message, args) {
         const axios = require('axios');
         const Discord = require('discord.js');
@@ -8,7 +9,7 @@ module.exports = {
         console.log(args);
 
         if (args.length != 2) {
-            message.reply("Please add a course number to your request!\nFor example: CMPT 110 or arch 100");
+            message.reply("Please add a course number to your request!\nFor example: CMPT 110 or ARCH 100");
             return;
         }
 

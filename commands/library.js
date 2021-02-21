@@ -4,8 +4,8 @@ const Discord = require('discord.js');
 
 module.exports = {
   name: 'library',
-  description: 'Does library stuff',
-  
+  description: 'Returns information on SFU Library. Valid keywords are: About, Course, Workshops',
+  usage: '<keyword> <optional course department and number>',
   execute(message, args) {
   
     if (args.length == 0) {

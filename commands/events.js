@@ -7,7 +7,7 @@ const event_display_size = 10;
 module.exports = {
   name: 'events',
   description: 'Find upcoming events',
-
+  usage: '',
   execute(message, args) {
 
     axios.get('http://api.lib.sfu.ca/workshops/list')

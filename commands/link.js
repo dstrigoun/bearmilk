@@ -1,6 +1,7 @@
 module.exports = {
     name: 'link',
-    description: 'Return link based on args?',
+    description: 'Return SFU link based on keywords. Valid keywords are: Scholarships, Tuition, Exchange, Co-op, Rec',
+    usage: '<keyword>',
     execute(message, args) {
         if (args.length == 0) {
             message.reply("Add a keyword to get specific links\nFor example: Exchange, Co-op, Advising, etc.");
