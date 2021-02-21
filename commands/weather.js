@@ -35,7 +35,7 @@ function getDayOfWeek(index) {
 
 module.exports = {
   name: 'weather',
-  description: 'Return weather conditions for specified campus. Available campuses are Burnaby and Surrey.',
+  description: 'Return weather conditions for specified campus. Available campuses are Burnaby, Vancouver, and Surrey.',
   usage: '<campus>',
   example: '!weather Burnaby',
   /* 

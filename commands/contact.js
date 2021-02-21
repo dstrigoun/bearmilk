@@ -119,7 +119,7 @@ module.exports = {
                 break;
         }
 
-        contactMsg.addField("Dasha Strigoun", "@dooshadoosh", false);
+        contactMsg.addField("John Smith", "@john.smitch", false);
 
         message.reply(contactMsg);
     }
