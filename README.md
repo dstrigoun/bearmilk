@@ -1,12 +1,12 @@
 # bearmilk
 
-##Overview
+## Overview
 Meet Cubs!
 
 An intuitive chat bot that provides helpful information for SFU students, real-time. :)
 
 
-##Usage
+## Usage
 
 ```
 !help
@@ -22,7 +22,7 @@ An intuitive chat bot that provides helpful information for SFU students, real-t
 
 
 
-##Example
-![alt text](https://github.com/dstrigoun/bearmilk/tree/main/resources/readme/help.png?raw=true)
+## Example
+![help](https://github.com/dstrigoun/bearmilk/tree/main/resources/readme/help.png?raw=true)
 
 
