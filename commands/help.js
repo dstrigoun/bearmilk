@@ -3,7 +3,7 @@ module.exports = {
 	description: 'List all of my commands or info about a specific command.',
 	usage: '[command name]',
 	execute(message, args) {
-        const prefix = "/";
+        const prefix = "!";
         const data = [];
         const { commands } = message.client;
 
