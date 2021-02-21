@@ -74,8 +74,6 @@ module.exports = {
           message.reply(richMsg);
             
         })
-
-
         break;
       case "course":
         break;
