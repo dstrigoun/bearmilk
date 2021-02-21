@@ -2,7 +2,7 @@ const creds = require('../creds.js');
 const axios = require('axios');
 const Discord = require('discord.js');
 
-const event_display_size = 6;
+const event_display_size = 3;
 
 module.exports = {
   name: 'events',
@@ -46,7 +46,7 @@ module.exports = {
             index = arr[el].date;
             currDate = new Date(index);
             frmtDate = currDate.toDateString();
-            richMsg.addField(`${frmtDate}`, '===============================================');
+            richMsg.addField(`${frmtDate}`, '============================================');
           }
 
           richMsg.addField(`${arr[el].name}`, `Speaker: ${arr[el].facilitator}\n Time : ${arr[el].start} - ${arr[el].end}\n Link: ${arr[el].url}`);
