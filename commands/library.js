@@ -6,9 +6,9 @@ const textbooks_limit = 10;
 
 module.exports = {
   name: 'library',
-  description: 'Returns information on SFU Library. Valid keywords are: About, Course, Workshops',
-  usage: '<keyword> <optional course department and number>',
-  example: '!library about',
+  description: 'Returns information on SFU Library.',
+  usage: '[textbook <course department> <course number> | about]',
+  example: '!library about, !library textbook <course subject> <course number>',
   execute(message, args) {
   
     if (args.length == 0) {
