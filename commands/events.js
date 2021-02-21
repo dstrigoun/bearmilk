@@ -37,12 +37,11 @@ module.exports = {
         .setDescription(`Please note that many events are transitioning to an online format. Please check included link for more`)
         
         for (el in arr) {
-          console.log(arr[el]);
           if (arr[el].date != index) {
             index = arr[el].date;
             currDate = new Date(index);
             frmtDate = currDate.toDateString();
-            richMsg.addField(`${frmtDate}`, '==================================================');
+            richMsg.addField(`${frmtDate}`, '===============================================');
           }
 
           richMsg.addField(`${arr[el].name}`, `Speaker: ${arr[el].facilitator}\n Time : ${arr[el].start} - ${arr[el].end}\n Link: ${arr[el].url}`);
