@@ -24,7 +24,7 @@ Run as NodeJS server. Make sure to install dependencies.
 ```
 
 Adding the bot to your own server (2 methods)
-1) Visit https://top.gg/ and search 'Cubs' (pending approval)
+1) **(pending approval)** Visit https://top.gg/ and search 'Cubs'
 2) Use this link and add directly to your own server (https://discord.com/api/oauth2/authorize?client_id=812901782987735070&permissions=8&scope=bot)
 
 ## Example
