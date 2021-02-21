@@ -2,7 +2,7 @@ const creds = require('../creds.js');
 const axios = require('axios');
 const Discord = require('discord.js');
 
-const event_display_size = 10;
+const event_display_size = 6;
 
 module.exports = {
   name: 'events',
