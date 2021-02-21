@@ -12,7 +12,7 @@ module.exports = {
         let links = "";
 
         for (let command of args) {
-            switch(command) {
+            switch(command.toLowerCase()) {
                 case "scholarship":
                 case "scholarships":
                     links += "Scholarships: https://www.sfu.ca/students/financialaid/undergrad/scholarships.html\n";
