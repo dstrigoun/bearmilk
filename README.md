@@ -8,6 +8,9 @@ An intuitive chat bot that provides helpful information for SFU students, real-t
 
 ## Usage
 
+Run as NodeJS server. Make sure to install dependencies.
+
+
 ```
 !help
 !help <command>
