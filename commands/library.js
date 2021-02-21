@@ -2,30 +2,28 @@ const creds = require('../creds.js');
 const axios = require('axios');
 const Discord = require('discord.js');
 
+const textbooks_limit = 10;
+
 module.exports = {
   name: 'library',
-  description: 'Returns information on SFU Library. Valid keywords are: About, Course, Workshops',
-  usage: '<keyword> <optional course department and number>',
-  example: '!library about',
+  description: 'Returns information on SFU Library.',
+  usage: '[textbook <course department> <course number> | about]',
+  example: '!library about, !library textbook <course subject> <course number>',
   execute(message, args) {
   
     if (args.length == 0) {
-      message.reply("Please enter a valid library command (About, Course, Workshops)");
+      message.reply("Please enter a valid library command (About / Textbook)");
       return;
     }
 
     const command = args[0].toLowerCase();
     const currDate = new Date();
-    let payload;
-
-    console.log(currDate.toLocaleDateString());
 
     switch (command) {
       case "about":        
         // make API call
         axios.get('http://api.lib.sfu.ca/hours/3/summary?date=2021-01-15')
         .then((resp) => {
-          console.log(resp.data);
 
           const lib = resp.data.locations;
 
@@ -76,16 +74,68 @@ module.exports = {
             
         })
         break;
-      case "course":
-        break;
-      case "workshops":
+      case "textbook":
+        let course_num = "";
+        let course_sub = "";
+        let params = args.slice(1);
+        let count = 0;
+
+        if (params.length == 0) {
+          message.reply("Further course information required. Must at least have course subject included.");
+          return;
+        }
+
+        for (el in params) {
+          if (isNaN(params[el])) {
+            course_sub = params[el];
+          } else {
+            course_num =params[el];
+          }
+        }
+
+        let sub_payload = (course_sub.length != 0) ? "department=" + course_sub : "";
+        let num_payload = (course_num.length != 0) ? "number=" + course_num : "";
+
+        if (sub_payload.length == 0) {
+          message.reply("Further course information required. Must at least have course subject included.");
+          return;
+        }
+
+        if (num_payload.length != 0 && sub_payload.length != 0) {
+          num_payload = "&number=" + course_num;
+        }
+        
+        axios.get('http://api.lib.sfu.ca/reserves/search?' + sub_payload + num_payload)
+        .then((resp) => {
+          let arr = resp.data.reserves;
+
+          // const attachment = new Discord.MessageAttachment('./resources/icons/partly_sunny.png', 'partly_sunny.png');
+
+          const richMsg = new Discord.MessageEmbed()
+          .setColor('#0099ff')
+          .setTitle(`Textbook Matches`)
+          .setDescription(`Sorry for the wait, ${message.author.tag}! 😅 \nHere are some textbooks that I've found. \nPlease note that availability is subject to change. Visit links to view available formats and quantities.`)
+          // .attachFiles(attachment)
+          // .setThumbnail('attachment://partly_sunny.png')  
+
+          for (el in arr) {
+            richMsg.addField(`${arr[el].title.slice(0,250)}`, `Author: ${arr[el].author.slice(0,250)}\n Course: ${arr[el].course}\n Link: ${arr[el].item_url.slice(0,250)}\n ISNS: ${arr[el].isns}`);
+            count++; 
+            if (count > textbooks_limit) {
+              break;
+            }
+          }
+
+          message.reply(richMsg);
+
+        });
         break;
       default:
+        message.reply("Please enter a valid library command (About / Textbook)");
         break;      
     }
 
-
-
+    return;
     
   }
 }

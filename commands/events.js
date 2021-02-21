@@ -42,12 +42,11 @@ module.exports = {
         .setThumbnail('attachment://calendar.png');
         
         for (el in arr) {
-          console.log(arr[el]);
           if (arr[el].date != index) {
             index = arr[el].date;
             currDate = new Date(index);
             frmtDate = currDate.toDateString();
-            richMsg.addField(`${frmtDate}`, '==================================================');
+            richMsg.addField(`${frmtDate}`, '===============================================');
           }
 
           richMsg.addField(`${arr[el].name}`, `Speaker: ${arr[el].facilitator}\n Time : ${arr[el].start} - ${arr[el].end}\n Link: ${arr[el].url}`);
