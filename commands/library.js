@@ -6,8 +6,9 @@ const textbooks_limit = 10;
 
 module.exports = {
   name: 'library',
-  description: 'Does library stuff',
-  
+  description: 'Returns information on SFU Library. Valid keywords are: About, Course, Workshops',
+  usage: '<keyword> <optional course department and number>',
+  example: '!library about',
   execute(message, args) {
   
     if (args.length == 0) {
@@ -51,7 +52,7 @@ module.exports = {
           const link = "Click Me";
           const result = link.link("google.com");
 
-          // const attachment = new Discord.MessageAttachment('./resources/icons/partly_sunny.png', 'partly_sunny.png');
+          const attachment = new Discord.MessageAttachment('./resources/icons/book.png', 'book.png');
 
           const richMsg = new Discord.MessageEmbed()
           .setColor('#0099ff')
@@ -59,8 +60,8 @@ module.exports = {
           .setURL('https://discord.js.org/')
           .setAuthor(`Here are the current library operation hours, ${message.author.tag}`)
           .setDescription(`Please note that current hours are being affected by COVID-19 lockdown protocol.`)
-          // .attachFiles(attachment)
-          // .setThumbnail('attachment://partly_sunny.png')  
+          .attachFiles(attachment)
+          .setThumbnail('attachment://book.png')  
           .addFields(
             {name: `${library_name_1}`, value: `Current Status: ${status_1}\n Hours : ${library_hours_1}\n Book Room: ${book_room_1}`},
             {name: `${library_name_2}`, value: `Current Status: ${status_2}\n Hours : ${library_hours_2}\n Book Room: ${book_room_2}`},

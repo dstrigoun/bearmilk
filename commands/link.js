@@ -1,6 +1,8 @@
 module.exports = {
     name: 'link',
-    description: 'Return link based on args?',
+    description: 'Return SFU link based on keywords. Valid keywords are: Scholarships, Tuition, Exchange, Co-op, Rec',
+    usage: '<keyword>',
+    example: '!link scholarships fees clubs',
     execute(message, args) {
         if (args.length == 0) {
             message.reply("Add a keyword to get specific links\nFor example: Exchange, Co-op, Advising, etc.");
@@ -11,7 +13,7 @@ module.exports = {
         let links = "";
 
         for (let command of args) {
-            switch(command) {
+            switch(command.toLowerCase()) {
                 case "scholarship":
                 case "scholarships":
                     links += "Scholarships: https://www.sfu.ca/students/financialaid/undergrad/scholarships.html\n";
