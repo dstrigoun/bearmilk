@@ -6,7 +6,7 @@ const event_display_size = 3;
 
 module.exports = {
   name: 'events',
-  description: 'Find upcoming events',
+  description: 'Find upcoming events running remotely!\nTry something new 😀',
   usage: '',
   example: '!events',
   execute(message, args) {

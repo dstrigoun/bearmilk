@@ -1,6 +1,6 @@
 module.exports = {
     name: 'course',
-    description: 'Return course information using SFU Course Information API.',
+    description: 'Provides course information!\nThings like if it\'s running this semester and who\'s teaching it. 🏫',
     usage: '<department> <course number>',
     example: '!course cmpt 115',
     execute(message, args) {

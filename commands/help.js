@@ -2,7 +2,7 @@ const { DiscordAPIError } = require("discord.js");
 
 module.exports = {
 	name: 'help',
-	description: 'List all of my commands or info about a specific command.',
+	description: 'List all of the commands I have or info about a specific command!',
     usage: '<command>',
     example: '!help help',
 	execute(message, args) {
@@ -16,7 +16,7 @@ module.exports = {
         if (!args.length) {
             let helpMsg = new Discord.MessageEmbed()
                 .setTitle("Here's a list of available commands!")
-                .setDescription(`You can send \`${prefix}help [command]\` to get info on a specific command <>`)
+                .setDescription(`You can send \`${prefix}help [command]\` to get info on a specific command 😁`)
                 .attachFiles(attachment)
                 .setThumbnail('attachment://help.png');
 

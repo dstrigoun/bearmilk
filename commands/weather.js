@@ -35,24 +35,16 @@ function getDayOfWeek(index) {
 
 module.exports = {
   name: 'weather',
-  description: 'Return weather conditions for specified campus. Available campuses are Burnaby, Vancouver, and Surrey.',
+  description: 'Provides weather information for an SFU campus!\nJust call me weather boy ☂\nAvailable campuses are Burnaby, Vancouver, and Surrey.',
   usage: '<campus>',
   example: '!weather Burnaby',
-  /* 
-    Format:
-    weather <campus>
-
-    Notes:  
-    <campus>
-      - Burnaby / Surrey
-  */
 
   execute(message, args) {
 
     const userID = message.author.tag;
 
     if (args.length == 0) {
-      message.reply("Please enter a valid campus city (Vancouver, Burnaby, or Surrey)");
+      message.reply("Please enter a valid campus city (Burnaby, Vancouver, or Surrey)");
       return;
     }
     const campus = args[0].toLowerCase();
@@ -60,7 +52,7 @@ module.exports = {
     let cityID;
 
     if (campus != "burnaby" && campus != "surrey" && campus != "vancouver") {
-      message.reply("Please enter a valid campus city (Vancouver, Burnaby, or Surrey)");
+      message.reply("Please enter a valid campus city (Burnaby, Vancouver, or Surrey)");
       return;
     }
 
@@ -105,8 +97,6 @@ module.exports = {
       const firstDay = getDayOfWeek(index);
       const secondDay = getDayOfWeek(index + 1);
       const thirdDay = getDayOfWeek(index + 2);
-
-      // parse json object for temperature, weather conditions, and date?
       
 
       const attachment = new Discord.MessageAttachment('./resources/icons/partly_sunny.png', 'partly_sunny.png');
@@ -115,7 +105,7 @@ module.exports = {
       .setColor('#0099ff')
       .setTitle(`Weather for the Week`)
       .setURL('https://discord.js.org/')
-      .setAuthor(`Here\'s your weather for the week, ${userID}`)
+      .setAuthor(`Here\'s your weather for the week, ${userID}!`)
       .setDescription(`The ${campus_formal} campus is expected to have ${weatherDescFirst} today. Forecast predicts temperatures of ${tempCelsiusFirst}°C, with a ${rainChanceFirst}% chance of precipitation.`)
       .attachFiles(attachment)
       .setThumbnail('attachment://partly_sunny.png')  
@@ -134,5 +124,3 @@ module.exports = {
   }
 }
 
-
-//5f7bb0d6d80189ea9610aa23c981d9f4

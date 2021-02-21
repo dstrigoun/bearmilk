@@ -1,6 +1,6 @@
 module.exports = {
     name: 'servers',
-    description: 'Return SFU related discord servers',
+    description: 'Provides some related SFU discord links!\nGo make some new friends 🐻♥',
     usage: '',
     example: '!servers',
     execute(message, args) {

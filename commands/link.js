@@ -1,11 +1,11 @@
 module.exports = {
     name: 'link',
-    description: 'Return SFU link based on keywords. Valid keywords are: Scholarships, Tuition, Exchange, Co-op, Rec',
+    description: 'Provides a link to the specific SFU site!\nI\'m kinda like Google, what can I say??\nValid keywords are: Scholarships, Tuition, Exchange, Co-op, Rec',
     usage: '<keyword>',
     example: '!link scholarships fees clubs',
     execute(message, args) {
         if (args.length == 0) {
-            message.reply("Add a keyword to get specific links\nFor example: Exchange, Co-op, Advising, etc.");
+            message.reply("Add a keyword to get specific links!\nI think you can type sfu.ca on your own bud 😛");
             return;
         }
 

@@ -6,9 +6,9 @@ const textbooks_limit = 2;
 
 module.exports = {
   name: 'library',
-  description: 'Returns information on SFU Library.',
-  usage: '[textbook <course department> <course number> | about]',
-  example: '!library about, !library textbook <course subject> <course number>',
+  description: 'Provides information on SFU Library!\nGet general info or textbooks you need for a course 📕',
+  usage: '[about | textbook <course department> <course number>]',
+  example: '!library textbook cmpt 115',
   execute(message, args) {
   
     if (args.length == 0) {
@@ -54,8 +54,8 @@ module.exports = {
           .setColor('#0099ff')
           .setTitle(`Library Hours`)
           .setURL('https://discord.js.org/')
-          .setAuthor(`Here are the current library operation hours, ${message.author.tag}`)
-          .setDescription(`Please note that current hours are being affected by COVID-19 lockdown protocol.`)
+          .setAuthor(`Here are the current library hours, ${message.author.tag}!`)
+          .setDescription(`Just so you know, the current hours are being affected by COVID-19 lockdown protocol.`)
           .attachFiles(attachment)
           .setThumbnail('attachment://about.png')  
           .addFields(
@@ -76,7 +76,7 @@ module.exports = {
         let count = 0;
 
         if (params.length == 0) {
-          message.reply("Further course information required. Must at least have course subject included.");
+          message.reply("I need more information! Please add at least a course subject, like CMPT");
           return;
         }
 
@@ -92,7 +92,7 @@ module.exports = {
         let num_payload = (course_num.length != 0) ? "number=" + course_num : "";
 
         if (sub_payload.length == 0) {
-          message.reply("Further course information required. Must at least have course subject included.");
+          message.reply("I need more information! Please add at least a course subject, like CMPT");
           return;
         }
 
@@ -109,7 +109,7 @@ module.exports = {
           const richMsg = new Discord.MessageEmbed()
           .setColor('#0099ff')
           .setTitle(`Textbook Matches`)
-          .setDescription(`Sorry for the wait, ${message.author.tag}! 😅 \nHere are some textbooks that I've found. \nPlease note that availability is subject to change. Visit links to view available formats and quantities.`)
+          .setDescription(`Sorry for the wait, ${message.author.tag}! 😅 \nHere are some textbooks that I've found. \n\nPlease note that availability is subject to change. Visit links to view available formats and quantities.`)
           .attachFiles(attachment)
           .setThumbnail('attachment://textbook.png')  
 
