@@ -23,6 +23,6 @@ An intuitive chat bot that provides helpful information for SFU students, real-t
 
 
 ##Example
-![alt text](https://github.com/dstrigoun/bearmilk/blob/main/resources/readme/help.png?raw=true)
+![alt text](https://github.com/dstrigoun/bearmilk/tree/main/resources/readme/help.png?raw=true)
 
 
