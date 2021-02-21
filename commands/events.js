@@ -21,7 +21,6 @@ module.exports = {
         let arr = new Array();
         
         for (entry in vals) {
-          // console.log(vals[entry][0].date);
           let date = vals[entry][0].date; 
           if (date >= index) {
             arr.push(vals[entry][0]);
@@ -34,17 +33,8 @@ module.exports = {
         const richMsg = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle(`Upcoming Events`)
-        .setURL('https://discord.js.org/')
         .setAuthor(`Here are some upcoming event workshops, ${message.author.tag}`)
-        .setDescription(`Please note that many events are transitioning to an online format. Please check included link for more details.`)
-
-        // .attachFiles(attachment)
-        // .setThumbnail('attachment://partly_sunny.png')  
-        // .addFields(
-        //   {name: `${arr[0].name}`, value: `Speaker: ${arr[0].facilitator}\n Time : ${arr[0].start} - ${arr[0].end}\n Link: ${arr[0].url}`},
-          // {name: `${library_name_2}`, value: `Current Status: ${status_2}\n Hours : ${library_hours_2}\n Book Room: ${book_room_2}`},
-          // {name: `${library_name_3}`, value: `Current Status: ${status_3}\n Hours : ${library_hours_3}\n Book Room: ${book_room_3}`},
-          // {name: `${library_name_4}`, value: `Current Status: ${status_4}\n Hours : ${library_hours_4}\n Book Room: ${book_room_4}`}
+        .setDescription(`Please note that many events are transitioning to an online format. Please check included link for more`)
         
         for (el in arr) {
           console.log(arr[el]);
@@ -60,8 +50,6 @@ module.exports = {
         }  
           
         message.reply(richMsg);
-
-        // console.log(arr);
     });   
     
   }
