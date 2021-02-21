@@ -74,7 +74,7 @@ function coop(faculty) {
 
 module.exports = {
     name: 'contact',
-    description: 'Return contact information for specified keyword.\nValid keywords: Advising, Health, Co-op, and General\nFor Co-op, please add a faculty keyword.\nFaculties: arts, bus, bpk, comm, engsci, env, hsci, iat, mse, sci, see, sosy',
+    description: 'Return contact information for specified keyword.\nValid keywords: Advising 📃, Health 🩹, Co-op , and General\nFor Co-op, please add a faculty keyword!\nFaculties: arts, bus, bpk, comm, engsci, env, hsci, iat, mse, sci, see, sosy',
     usage: '<keyword> <optional: faculty>',
     example: '!contact co-op bpk',
     execute(message, args) {
