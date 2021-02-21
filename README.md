@@ -23,6 +23,16 @@ An intuitive chat bot that provides helpful information for SFU students, real-t
 
 
 ## Example
-![events](https://github.com/dstrigoun/bearmilk/tree/main/resources/readme/events.png)
+
+![events](https://github.com/dstrigoun/bearmilk/blob/main/resources/readme/events.png)
+
+
+![events](https://github.com/dstrigoun/bearmilk/blob/main/resources/readme/events.png)
+
+
+![events](https://github.com/dstrigoun/bearmilk/blob/main/resources/readme/events.png)
+
+
+![events](https://github.com/dstrigoun/bearmilk/blob/main/resources/readme/events.png)
 
 
