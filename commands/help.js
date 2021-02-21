@@ -23,10 +23,13 @@ module.exports = {
             return message.reply('that\'s not a valid command!');
         }
 
-        data.push(`\n**Name:** ${command.name}`);
+        // TODO: change to messageembed
+        // TODO: add example to each command
+        data.push(`\n**Command:**\t ${command.name}`);
 
-        if (command.description) data.push(`**Description:** ${command.description}`);
-        if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+        if (command.description) data.push(`**Description:**\t ${command.description}`);
+        if (command.usage) data.push(`**Usage:**\t \`${prefix}${command.name} ${command.usage}\``);
+        if (command.example) data.push(`**Example**:\n\t${command.example}`);
 
         message.reply(data);
 	},
