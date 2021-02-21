@@ -3,6 +3,8 @@ const { DiscordAPIError } = require("discord.js");
 module.exports = {
 	name: 'help',
 	description: 'List all of my commands or info about a specific command.',
+    usage: '<command>',
+    example: '!help help',
 	execute(message, args) {
         const prefix = "!";
         const data = [];
@@ -26,13 +28,11 @@ module.exports = {
             return message.reply('That\'s not a valid command!');
         }
 
-        // TODO: add example to each command
-
         let helpMsg = new Discord.MessageEmbed()
             .setTitle(`Command: ${command.name}`)
             .setDescription(`${command.description}`)
-            .addField("Usage", `\`${prefix}${command.name} ${command.usage}\``);
-            // .addField("Example", `\`${command.example}\``);
+            .addField("Usage", `\`${prefix}${command.name} ${command.usage}\``)
+            .addField("Example", `\`${command.example}\``);
 
         message.reply(helpMsg);
 	},

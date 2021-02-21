@@ -2,6 +2,7 @@ module.exports = {
     name: 'course',
     description: 'Return course information using SFU Course Information API.',
     usage: '<department> <course number>',
+    example: '!course cmpt 115',
     execute(message, args) {
         const axios = require('axios');
         const Discord = require('discord.js');
