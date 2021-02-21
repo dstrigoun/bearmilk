@@ -2,6 +2,7 @@ module.exports = {
     name: 'servers',
     description: 'Return SFU related discord servers',
     usage: '',
+    example: '!servers',
     execute(message, args) {
         const Discord = require('discord.js');
 

@@ -6,6 +6,7 @@ module.exports = {
   name: 'library',
   description: 'Returns information on SFU Library. Valid keywords are: About, Course, Workshops',
   usage: '<keyword> <optional course department and number>',
+  example: '!library about',
   execute(message, args) {
   
     if (args.length == 0) {

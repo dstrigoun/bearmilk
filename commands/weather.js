@@ -37,6 +37,7 @@ module.exports = {
   name: 'weather',
   description: 'Return weather conditions for specified campus. Available campuses are Burnaby and Surrey.',
   usage: '<campus>',
+  example: '!weather Burnaby',
   /* 
     Format:
     weather <campus>

@@ -8,6 +8,7 @@ module.exports = {
   name: 'events',
   description: 'Find upcoming events',
   usage: '',
+  example: '!events',
   execute(message, args) {
 
     axios.get('http://api.lib.sfu.ca/workshops/list')
