@@ -80,12 +80,11 @@ module.exports = {
         let count = 0;
 
         if (params.length == 0) {
-          message.reply("Further course information required. Minimum one of course subject and/or course number.");
+          message.reply("Further course information required. Must at least have course subject included.");
           return;
         }
 
         for (el in params) {
-          console.log (params[el]);
           if (isNaN(params[el])) {
             course_sub = params[el];
           } else {
@@ -93,17 +92,17 @@ module.exports = {
           }
         }
 
-        const sub_payload = (course_sub.length != 0) ? "department=" + course_sub : "";
-        const num_payload = (course_num.length != 0) ? "number=" + course_num : "";
+        let sub_payload = (course_sub.length != 0) ? "department=" + course_sub : "";
+        let num_payload = (course_num.length != 0) ? "number=" + course_num : "";
 
-        if (num_payload.length == 0 && sub_payload.length == 0) {
-          message.reply("Further course information required. Minimum one of course subject and/or course number.");
+        if (sub_payload.length == 0) {
+          message.reply("Further course information required. Must at least have course subject included.");
           return;
         }
 
         if (num_payload.length != 0 && sub_payload.length != 0) {
-          sub_payload = "&number=" + course_num;
-        }        
+          num_payload = "&number=" + course_num;
+        }
         
         axios.get('http://api.lib.sfu.ca/reserves/search?' + sub_payload + num_payload)
         .then((resp) => {
@@ -119,7 +118,7 @@ module.exports = {
           // .setThumbnail('attachment://partly_sunny.png')  
 
           for (el in arr) {
-            richMsg.addField(`${arr[el].title}`, `Author: ${arr[el].author}\n Course: ${arr[el].course}\n Link: ${arr[el].item_url}\n ISNS: ${arr[el].isns}`);
+            richMsg.addField(`${arr[el].title.slice(0,250)}`, `Author: ${arr[el].author.slice(0,250)}\n Course: ${arr[el].course}\n Link: ${arr[el].item_url.slice(0,250)}\n ISNS: ${arr[el].isns}`);
             count++; 
             if (count > textbooks_limit) {
               break;
