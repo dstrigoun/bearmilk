@@ -2,7 +2,7 @@ const creds = require('../creds.js');
 const axios = require('axios');
 const Discord = require('discord.js');
 
-const textbooks_limit = 6;
+const textbooks_limit = 2;
 
 module.exports = {
   name: 'library',
@@ -48,11 +48,7 @@ module.exports = {
           const book_room_3 = lib[2].room_booking;
           const book_room_4 = lib[3].room_booking;
 
-
-          const link = "Click Me";
-          const result = link.link("google.com");
-
-          const attachment = new Discord.MessageAttachment('./resources/icons/book.png', 'book.png');
+          const attachment = new Discord.MessageAttachment('./resources/icons/about.png', 'about.png');
 
           const richMsg = new Discord.MessageEmbed()
           .setColor('#0099ff')
@@ -61,7 +57,7 @@ module.exports = {
           .setAuthor(`Here are the current library operation hours, ${message.author.tag}`)
           .setDescription(`Please note that current hours are being affected by COVID-19 lockdown protocol.`)
           .attachFiles(attachment)
-          .setThumbnail('attachment://book.png')  
+          .setThumbnail('attachment://about.png')  
           .addFields(
             {name: `${library_name_1}`, value: `Current Status: ${status_1}\n Hours : ${library_hours_1}\n Book Room: ${book_room_1}`},
             {name: `${library_name_2}`, value: `Current Status: ${status_2}\n Hours : ${library_hours_2}\n Book Room: ${book_room_2}`},
@@ -108,14 +104,14 @@ module.exports = {
         .then((resp) => {
           let arr = resp.data.reserves;
 
-          // const attachment = new Discord.MessageAttachment('./resources/icons/partly_sunny.png', 'partly_sunny.png');
+          const attachment = new Discord.MessageAttachment('./resources/icons/textbook.png', 'textbook.png');
 
           const richMsg = new Discord.MessageEmbed()
           .setColor('#0099ff')
           .setTitle(`Textbook Matches`)
           .setDescription(`Sorry for the wait, ${message.author.tag}! 😅 \nHere are some textbooks that I've found. \nPlease note that availability is subject to change. Visit links to view available formats and quantities.`)
-          // .attachFiles(attachment)
-          // .setThumbnail('attachment://partly_sunny.png')  
+          .attachFiles(attachment)
+          .setThumbnail('attachment://textbook.png')  
 
           for (el in arr) {
             richMsg.addField(`${arr[el].title.slice(0,250)}`, `Author: ${arr[el].author.slice(0,250)}\n Course: ${arr[el].course}\n Link: ${arr[el].item_url.slice(0,250)}\n ISNS: ${arr[el].isns}`);
